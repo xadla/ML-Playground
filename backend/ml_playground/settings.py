@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # my apps.
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
@@ -73,9 +76,13 @@ WSGI_APPLICATION = 'ml_playground.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+    "ENGINE": "django.db.backends.postgresql",
+    "NAME": "ml_pg",
+    "USER": "ml",
+    "PASSWORD": "ml",
+    "HOST": "localhost",
+    "PORT": "5432",
     }
 }
 
@@ -120,3 +127,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = "accounts.User"
