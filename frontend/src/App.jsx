@@ -6,9 +6,11 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 
-const App = () => {
+import {AuthProvider} from "./auth/AuthContext";
+
+function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -16,7 +18,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 
