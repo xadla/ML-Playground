@@ -1,12 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+// pages
 import Home from "./pages/Home";
+import SigninPage from "./pages/SigninPage";
 
-import {AuthProvider} from "./auth/AuthContext";
+// Context
+import { AuthProvider } from "./auth/AuthContext";
 
 function App() {
   return (
@@ -15,6 +19,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<SigninPage />} />
         </Routes>
         <Footer />
       </Router>

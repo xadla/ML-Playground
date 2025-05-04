@@ -26,9 +26,9 @@ export const AuthProvider = ({ children }) => {
   }, [checked]);
   
 
-  async function login(username, password) {
+  async function login(email, password) {
     try {
-      const result = await Login(username, password);
+      const result = await Login(email, password);
       setUser(result.data.user);
       return result;
     } catch (error) {
@@ -46,10 +46,10 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  async function signup(full_name, username, password, password2) {
+  async function signup(name, email, password, password2) {
     try {
-      const result = await Signup(full_name, username, password, password2);
-      await login(username, password);
+      const result = await Signup(name, email, password, password2);
+      await login(email, password);
       return result;
     } catch (error) {
       throw error;
