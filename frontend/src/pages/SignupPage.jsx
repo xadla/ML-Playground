@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
-
 import useAuth from '../auth/AuthContext';
 
-const SigninPage = () => {
+const SignupPage = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
 
-  const { login } = useAuth();
+  const { signup } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Basic validation
-    if (!email || !password) {
-      setError('Both fields are required.');
+    if (!name || !email || !password) {
+      setError('All fields are required.');
       return;
     }
 
     setError('');
 
     try {
-      const result = await login(email, password);
+      const result = await signup(name, email, password, password2);
       console.log(result);
     } catch (error) {
       if (error.response) {
-        if (error.response.status === 401) {
-          setError("Email or password is wrong. Please try again.");
+        if (error.response.status === 409) {
+          setError("Email is already in use.");
         } else {
-          setError("Server not connected. Please try again later.");
+          setError("Server error. Please try again later.");
         }
       } else {
         setError("Network error. Please check your connection.");
       }
     }
-
   };
 
   return (
@@ -42,7 +41,18 @@ const SigninPage = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-2xl shadow-md w-full max-w-sm"
       >
-        <h2 className="text-2xl font-semibold mb-4 text-center">Sign In</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-center">Sign Up</h2>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+          <input
+            type="text"
+            className="w-full p-2 border rounded-lg"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+          />
+        </div>
 
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -62,22 +72,32 @@ const SigninPage = () => {
             className="w-full p-2 border rounded-lg"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Your password"
+            placeholder="Create a password"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+          <input
+            type="password"
+            className="w-full p-2 border rounded-lg"
+            value={password2}
+            onChange={(e) => setPassword2(e.target.value)}
+            placeholder="Create a password"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
         >
-          Sign In
+          Sign Up
         </button>
 
         {error && <div className="mt-4 text-red-500">{error}</div>}
-
       </form>
     </div>
   );
-}
+};
 
-export default SigninPage;
+export default SignupPage;

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 // pages
 import Home from "./pages/Home";
 import SigninPage from "./pages/SigninPage";
+import SignupPage from "./pages/SignupPage";
 
 // Context
 import { AuthProvider } from "./auth/AuthContext";
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SigninPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
         <Footer />
       </Router>
