@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
 
     fetchData();
   }, [checked]);
-  
 
   async function login(email, password) {
     try {

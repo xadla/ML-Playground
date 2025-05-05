@@ -104,7 +104,6 @@ class CheckUserAPI(APIView):
                     "ID": user.id,
                     "name": user.name,
                     "email": user.email,
-                    "created": user.created,
                 }
             }, status=status.HTTP_200_OK)
         return Response({
