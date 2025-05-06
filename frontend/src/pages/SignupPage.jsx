@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import useAuth from '../auth/AuthContext';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const SignupPage = () => {
   const [name, setName] = useState('');
@@ -10,6 +12,8 @@ const SignupPage = () => {
 
   const { signup } = useAuth();
 
+  const navigate = useNavigate;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !password) {
@@ -17,11 +21,17 @@ const SignupPage = () => {
       return;
     }
 
+    if (password != password2) {
+      setError("Passwords doesn't match!");
+      return;
+    }
+
     setError('');
 
     try {
       const result = await signup(name, email, password, password2);
-      console.log(result);
+      toast.success("Your account is created successfully");
+      navigate("/");
     } catch (error) {
       if (error.response) {
         if (error.response.status === 409) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // components
 import Navbar from "./components/Navbar";
@@ -25,6 +26,13 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        pauseOnHover
+        draggable
+        theme="light"
+      />
     </AuthProvider>
   );
 }
