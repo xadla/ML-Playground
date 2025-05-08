@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
 import useAuth from '../auth/AuthContext';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const { login } = useAuth();
+  const { login, user } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +25,8 @@ const SigninPage = () => {
 
     try {
       const result = await login(email, password);
-      console.log(result);
+      toast.success(`Welcome Back`);
+      navigate("/");
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {

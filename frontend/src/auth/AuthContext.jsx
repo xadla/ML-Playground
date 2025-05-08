@@ -16,9 +16,9 @@ export const AuthProvider = ({ children }) => {
     if (checked) return;
   
     const fetchData = async () => {
+      await GetCSRF();
       const loggedInUser = await CheckAuth();
       setUser(loggedInUser);
-      await GetCSRF();
       setChecked(true);
     };
 

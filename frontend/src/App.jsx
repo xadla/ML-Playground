@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
+import CreateDataset from "./pages/CreateDataset";
 
 // Context
 import { AuthProvider } from "./auth/AuthContext";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SigninPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/create-dataset" element={<CreateDataset />} />
         </Routes>
         <Footer />
       </Router>

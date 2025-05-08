@@ -12,7 +12,7 @@ const SignupPage = () => {
 
   const { signup } = useAuth();
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const SignupPage = () => {
 
     try {
       const result = await signup(name, email, password, password2);
-      toast.success("Your account is created successfully");
+      toast.success("Account is created");
       navigate("/");
     } catch (error) {
       if (error.response) {
