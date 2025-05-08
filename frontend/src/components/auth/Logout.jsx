@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import useAuth from '../auth/AuthContext';
+import useAuth from '../../auth/AuthContext';
 
 const LogoutButton = ({ classes }) => {
   const navigate = useNavigate();

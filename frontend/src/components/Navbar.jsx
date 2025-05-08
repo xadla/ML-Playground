@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import useAuth from "../auth/AuthContext";
 
-import LogoutButton from "./Logout";
+import LogoutButton from "./auth/Logout";
 
 const Navbar = () => {
 
