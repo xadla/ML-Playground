@@ -12,6 +12,7 @@ import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import CreateDataset from "./pages/CreateDataset";
 import DatasetsPage from "./pages/Datasts";
+import CreateModels from "./pages/CreateModel";
 
 // Context
 import { AuthProvider } from "./auth/AuthContext";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/create-dataset" element={<CreateDataset />} />
           <Route path="/datasets" element={<DatasetsPage />} />
+          <Route path="/create-model" element={<CreateModels />} />
         </Routes>
         <Footer />
       </Router>
