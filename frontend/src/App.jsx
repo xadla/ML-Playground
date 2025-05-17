@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
 import CreateDataset from "./pages/CreateDataset";
-import DatasetsPage from "./pages/Datasts";
+import DatasetsPage from "./pages/Datasets";
 import CreateModels from "./pages/CreateModel";
 
 // Context
