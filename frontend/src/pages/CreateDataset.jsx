@@ -1,6 +1,4 @@
-import React from "react";
-
-import UploadDataset from "../components/dataset/UploadDataset";
+import React, { useState, useRef, useEffect } from "react";
 
 const CreateDataset = () => {
 
@@ -64,6 +62,7 @@ const CreateDataset = () => {
       try {
         const data = JSON.parse(event.target.result);
         setUploadedData(data);
+        setPoints(data["annotations"]);
       } catch (error) {
         alert("Invalid JSON file.");
         setFileName("");
