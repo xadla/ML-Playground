@@ -56,7 +56,7 @@ const DatasetsPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="max-w-6xl mx-auto p-6 bg-gray-50 rounded-lg shadow-md mt-6">
       <div className="flex justify-between items-start mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Datasets</h1>
