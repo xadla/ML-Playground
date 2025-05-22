@@ -29,7 +29,7 @@ const ModelsPage = () => {
       name: "Spiral Classifier",
       createdAt: "2023-05-21T10:15:00Z",
       type: "random-forest",
-      accuracy: 95.1,
+      accuracy: 60,
       dataset: "Spiral Pattern",
       status: "ready",
       trainingTime: "1 minute"
@@ -341,17 +341,15 @@ const ModelsPage = () => {
                             </div>
                           </div>
 
-                          <div>
+                          <div className="font-sans">
                             <h3 className="text-sm font-medium text-gray-900">Hyperparameters</h3>
                             <div className="mt-2 bg-gray-50 p-3 rounded-md">
-                              <pre className="text-xs text-gray-500 overflow-x-auto">
-                                {JSON.stringify({
-                                  learning_rate: 0.01,
-                                  batch_size: 32,
-                                  epochs: 50,
-                                  layers: [64, 32]
-                                }, null, 2)}
-                              </pre>
+                              <ol className="text-sm text-gray-700 pl-5 space-y-1 list-decimal">
+                                <li>learning_rate: 0.01</li>
+                                <li>batch_size: 32</li>
+                                <li>epochs: 50</li>
+                                <li>layers: [64, 32]</li>
+                              </ol>
                             </div>
                           </div>
                         </div>
