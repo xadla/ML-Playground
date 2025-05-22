@@ -63,6 +63,34 @@ const CreateDataset = () => {
         const data = JSON.parse(event.target.result);
         setUploadedData(data);
         setPoints(data["annotations"]);
+        const num_classes = data["classes"]?.length || 0;
+        const currentClassesLength = classes.length;
+        
+        // Calculate how many classes we need to add
+        const classesToAdd = Math.max(0, num_classes - currentClassesLength);
+        
+        // Add all needed classes at once
+        if (classesToAdd > 0) {
+          setClasses(prevClasses => {
+            const newClasses = [];
+            const colors = [
+              "#FF0000", "#0000FF", "#00FF00", "#FFFF00", 
+              "#FF00FF", "#00FFFF", "#FFA500", "#800080"
+            ];
+            
+            for (let i = 0; i < classesToAdd; i++) {
+              const newId = `class-${prevClasses.length + i + 1}`;
+              const newColor = colors[(prevClasses.length + i) % colors.length];
+              newClasses.push({
+                id: newId,
+                name: `Class ${prevClasses.length + i + 1}`,
+                color: newColor
+              });
+            }
+            
+            return [...prevClasses, ...newClasses];
+          });
+        }
       } catch (error) {
         alert("Invalid JSON file.");
         setFileName("");
