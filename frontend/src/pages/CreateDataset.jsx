@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const CreateDataset = () => {
 
@@ -388,6 +388,7 @@ const CreateDataset = () => {
         </div>
       </div>
       
+      {/* Upload Dataset */}
       <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">
